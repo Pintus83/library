@@ -8,6 +8,13 @@ class Book
     @author = author
     @copies = copies
   end
+
+  # Redefine the to_s method to show a description of the book
+  
+  def to_s
+    "#{title} by #{author}, Copies available: #{copies}"
+  end
+
 end
 
 # define a class for customers with an empty array for books to borrow
@@ -77,7 +84,7 @@ book3 = Book.new("Harry Potter", "J.K. Rowling", 6)
 
 comunal.add_book(book1)
 comunal.add_book(book2)
-comunal.add_book(bbok3)
+comunal.add_book(book3)
 
 # create two users
 
