@@ -42,7 +42,7 @@ class Customer
 
 end
 
-# define a class for the library
+# define a class for the library, inizialize an emprty array to populate with books
 
 class Library
   attr_accessor :available_books
@@ -50,4 +50,68 @@ class Library
   def initialize
     @available_books = []
   end
+
+  def add_book(book)
+    @available_books << book
+    puts "Added: #{book.title} by #{book.author}, number of copies: #{book.copies}"
+  end
+
+  def show
+    puts "This is our catalogue:"
+    @available_books.each {|book| puts book}
+  end
+
 end
+
+# create a library
+
+comunal = Library.new
+
+# create books
+
+book1 = Book.new("The Lord of The Rings", "J.R.R. Tolkien", 3)
+book2 = Book.new("1984", "G. Orwell", 4)
+book3 = Book.new("Harry Potter", "J.K. Rowling", 6)
+
+# add the books to the library
+
+comunal.add_book(book1)
+comunal.add_book(book2)
+comunal.add_book(bbok3)
+
+# create two users
+
+customer1 = Customer.new("Marco")
+customer2 = Customer.new("Diletta")
+
+# show the list of Books 
+
+comunal.show
+
+# borrow some books 
+
+customer1.borrow(book1)
+customer2.borrow(book3)
+
+# show the list again to show changes
+
+comunal.show
+
+# borrow more books
+
+customer1.borrow(book2)
+customer2.borrow(book2)
+
+# show the list again to show changes
+
+comunal.show
+
+# take basck some books
+
+customer1.take_back(book1)
+customer2.take_back(book2)
+
+# show the list again to show changes
+
+comunal.show
+
